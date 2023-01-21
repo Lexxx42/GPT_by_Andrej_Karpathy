@@ -102,3 +102,17 @@ print(wei[0])
 # This makes it so when input Q,K are unit variance,
 # wei will be unit variance too and Softmax will stay diffuse and not saturate too much.
 # Illustration below. (look at README.md)
+
+k = torch.randn(B, T, head_size)
+q = torch.randn(B, T, head_size)
+wei = q @ k.transpose(-2, -1) * head_size ** -0.5
+
+print(k.var())
+
+print(q.var())
+
+print(wei.var())
+
+print(torch.softmax(torch.tensor([0.1, -0.2, 0.3, -0.2, 0.5]), dim=-1))
+
+print(torch.softmax(torch.tensor([0.1, -0.2, 0.3, -0.2, 0.5]) * 8, dim=-1))  # gets too peaky, converges to one-hot
