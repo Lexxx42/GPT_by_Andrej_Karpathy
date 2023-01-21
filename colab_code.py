@@ -1,3 +1,7 @@
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+
 # read it in to inspect it
 with open('input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
@@ -75,10 +79,6 @@ for b in range(batch_size):  # batch dimension
         print(f"when input is {context.tolist()} the target: {target}")
 
 print(xb)  # our input to the transformer
-
-import torch
-import torch.nn as nn
-from torch.nn import functional as F
 
 torch.manual_seed(1337)
 
