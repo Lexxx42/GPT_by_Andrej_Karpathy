@@ -143,5 +143,6 @@ for steps in range(100):  # increase number of steps for good results...
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
+    print(loss.item())
 
-print(loss.item())
+print("Optimized", loss.item())
