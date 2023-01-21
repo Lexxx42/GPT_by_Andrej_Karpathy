@@ -133,7 +133,7 @@ optimizer = torch.optim.AdamW(m.parameters(), lr=1e-3)
 
 # training loop
 batch_size = 32
-for steps in range(100):  # increase number of steps for good results...
+for steps in range(20000):  # increase number of steps for good results...
 
     # sample a batch of data
     xb, yb = get_batch('train')
@@ -143,6 +143,9 @@ for steps in range(100):  # increase number of steps for good results...
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
-    print(loss.item())
+    # print(loss.item())
 
 print("Optimized", loss.item())
+
+# Some output
+print(decode(m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=500)[0].tolist()))
