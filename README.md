@@ -20,3 +20,7 @@ GitHub: https://github.com/karpathy/ng-video-lecture
   improve the performance of your GPT?
 
 ![The transformer model from](https://miro.medium.com/max/720/1*YZsMZmXiLybDUzJtrYsQSA.webp "The transformer model")
+
+## Used tools
+
+- [Python 3.10](https://www.python.org/downloads/release/python-31010/)
